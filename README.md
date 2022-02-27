@@ -6,7 +6,7 @@ You will find all coded files inside src
 
 1. assests folder for images
 2. compoents folder for various screen parts
-3. modesl folder contains all your logic for redux and saga
+3. models folder contains all your logic for redux and saga
 4. navigation folder container your bottom navigation and spend limit screen navigation
 5. screen folder contain all screen of your app
 6. utils have file called functions.js which contain some function which are using in various screens
@@ -20,7 +20,9 @@ You will find all coded files inside src
 ## API
 
 Mock api is user for getting user details which is having some dummy data
-response of dummy data
+
+### Sample Response
+
 "name": "Mark Henry",
 "card_number": "5647 3411 2413 2020",
 "cvv": "456",
