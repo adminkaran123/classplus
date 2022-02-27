@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
-import FastImage from 'react-native-fast-image';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import FastImage from "react-native-fast-image";
 
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 
 // Screens
 import {
@@ -14,23 +14,23 @@ import {
   ProfileScreen,
   DebitCardScreen,
   SpendLimitScreen,
-} from '../screens';
+} from "../screens";
 
 // Screen names
-const homeName = 'Home';
-const paymentsName = 'Payment';
-const cardName = 'Credit';
-const profileName = 'Profile';
-const debitCardName = 'debitCard';
-const spendLimitName = 'spendLimit';
+const homeName = "Home";
+const paymentsName = "Payment";
+const cardName = "Credit";
+const profileName = "Profile";
+const debitCardName = "debitCard";
+const spendLimitName = "spendLimit";
 
 //stacks
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 function HomeStack() {
-  const getActiveStyle = active => {
-    return active ? '#01D167' : '#DDDDDD';
+  const getActiveStyle = (active) => {
+    return active ? "#01D167" : "#DDDDDD";
   };
   return (
     <Tab.Navigator initialRouteName={homeName}>
@@ -38,14 +38,16 @@ function HomeStack() {
         name={homeName}
         component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.TabStyle}>
               <FastImage
                 style={styles.tabIcon}
-                source={require('../assests/img/Home.png')}
+                source={require("../assests/img/Home.png")}
                 tintColor={getActiveStyle(focused)}
               />
-              <Text style={{...styles.tabText, color: getActiveStyle(focused)}}>
+              <Text
+                style={{ ...styles.tabText, color: getActiveStyle(focused) }}
+              >
                 Home
               </Text>
             </View>
@@ -61,14 +63,16 @@ function HomeStack() {
         name={debitCardName}
         component={DebitCardScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.TabStyle}>
               <FastImage
                 style={styles.tabIcon}
-                source={require('../assests/img/Card.png')}
+                source={require("../assests/img/Card.png")}
                 tintColor={getActiveStyle(focused)}
               />
-              <Text style={{...styles.tabText, color: getActiveStyle(focused)}}>
+              <Text
+                style={{ ...styles.tabText, color: getActiveStyle(focused) }}
+              >
                 Debit Card
               </Text>
             </View>
@@ -84,14 +88,16 @@ function HomeStack() {
         name={paymentsName}
         component={PaymentScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.TabStyle}>
               <FastImage
                 style={styles.tabIcon}
-                source={require('../assests/img/Payments.png')}
+                source={require("../assests/img/Payments.png")}
                 tintColor={getActiveStyle(focused)}
               />
-              <Text style={{...styles.tabText, color: getActiveStyle(focused)}}>
+              <Text
+                style={{ ...styles.tabText, color: getActiveStyle(focused) }}
+              >
                 Payments
               </Text>
             </View>
@@ -107,14 +113,16 @@ function HomeStack() {
         name={cardName}
         component={CreditScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.TabStyle}>
               <FastImage
                 style={styles.tabIcon}
-                source={require('../assests/img/Credit.png')}
+                source={require("../assests/img/Credit.png")}
                 tintColor={getActiveStyle(focused)}
               />
-              <Text style={{...styles.tabText, color: getActiveStyle(focused)}}>
+              <Text
+                style={{ ...styles.tabText, color: getActiveStyle(focused) }}
+              >
                 Credit
               </Text>
             </View>
@@ -130,14 +138,16 @@ function HomeStack() {
         name={profileName}
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.TabStyle}>
               <FastImage
                 style={styles.tabIcon}
-                source={require('../assests/img/Account.png')}
+                source={require("../assests/img/Account.png")}
                 tintColor={getActiveStyle(focused)}
               />
-              <Text style={{...styles.tabText, color: getActiveStyle(focused)}}>
+              <Text
+                style={{ ...styles.tabText, color: getActiveStyle(focused) }}
+              >
                 Profile
               </Text>
             </View>
@@ -154,15 +164,15 @@ function HomeStack() {
 }
 
 function MainContainer() {
-  const getActiveStyle = active => {
-    return active ? '#01D167' : '#DDDDDD';
+  const getActiveStyle = (active) => {
+    return active ? "#01D167" : "#DDDDDD";
   };
   return (
     <>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name={'home'}
+            name={"home"}
             component={HomeStack}
             options={{
               headerShown: false,
@@ -188,8 +198,8 @@ const styles = StyleSheet.create({
     height: 24,
   },
   TabStyle: {
-    alignItems: 'center',
-    width: '100%',
+    alignItems: "center",
+    width: "100%",
   },
   tabText: {
     fontSize: 9,
