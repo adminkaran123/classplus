@@ -1,19 +1,19 @@
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
-import React, {useEffect} from 'react';
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import React, { useEffect } from "react";
 import {
   CardElement,
   CardHeader,
   FeatureList,
   PercentageBar,
   Loader,
-} from '../components';
-import {connect} from 'react-redux';
-import {useDispatch} from 'react-redux';
+} from "../components";
+import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import {fetchUserInfo} from '../models/user/actions';
+import { fetchUserInfo } from "../models/user/actions";
 
-function DebitCardScreen({navigation, user, isLoading}) {
-  const {limit, spending_limit} = user;
+function DebitCardScreen({ navigation, user, isLoading }) {
+  const { limit, spending_limit, spent } = user;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function DebitCardScreen({navigation, user, isLoading}) {
         <CardHeader limit={limit} />
         <CardElement user={user} />
 
-        <PercentageBar limit={limit} spending_limit={spending_limit} />
+        <PercentageBar spent={spent} spending_limit={spending_limit} />
         <FeatureList navigation={navigation} spending_limit={spending_limit} />
       </View>
     </SafeAreaView>
@@ -39,7 +39,7 @@ function DebitCardScreen({navigation, user, isLoading}) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 });
 const mapStateToProps = (state, props) => {

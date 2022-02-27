@@ -5,8 +5,9 @@ import {
   Image,
   Switch,
   TouchableOpacity,
-} from 'react-native';
-import React, {useState} from 'react';
+  Platform,
+} from "react-native";
+import React, { useState } from "react";
 
 export default function FeatureItem({
   title,
@@ -17,7 +18,7 @@ export default function FeatureItem({
 }) {
   const [isEnabled, setIsEnabled] = useState(false);
 
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <TouchableOpacity style={styles.item} onPress={onPress}>
       <Image source={img} style={styles.itemLogo} />
@@ -28,8 +29,8 @@ export default function FeatureItem({
       {swith && (
         <View style={styles.switchBox}>
           <Switch
-            trackColor={{false: '#EEEEEE', true: '#01D167'}}
-            thumbColor={isEnabled ? '#fffff' : '#FFFFFF'}
+            trackColor={{ false: "#EEEEEE", true: "#01D167" }}
+            thumbColor={isEnabled ? "#fffff" : "#FFFFFF"}
             ios_backgroundColor="#EEEEEE"
             onValueChange={toggleSwitch}
             value={isEnabled}
@@ -43,26 +44,29 @@ export default function FeatureItem({
 const styles = StyleSheet.create({
   item: {
     padding: 24,
-    flexDirection: 'row',
-    width: '100%',
+    flexDirection: "row",
+    width: "100%",
   },
   itemContentTitle: {
-    color: '#25345F',
+    color: "#25345F",
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   itemLogo: {
     marginRight: 10,
   },
   itemContentSubtitle: {
     fontSize: 13,
-    color: '#222222',
+    color: "#222222",
     opacity: 0.4,
   },
   switchBox: {
-    position: 'absolute',
+    position: "absolute",
     top: 24,
     right: 24,
-    transform: [{scaleX: 0.7}, {scaleY: 0.7}],
+    transform:
+      Platform.OS == "ios"
+        ? [{ scaleX: 0.7 }, { scaleY: 0.7 }]
+        : [{ scaleX: 1 }, { scaleY: 1 }],
   },
 });

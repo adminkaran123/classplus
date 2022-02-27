@@ -1,14 +1,14 @@
-import {View, Text, StyleSheet, Image, Switch} from 'react-native';
-import React, {useState} from 'react';
-import {formatCurreny, getPercentage} from '../utils/functions';
+import { View, Text, StyleSheet, Image, Switch } from "react-native";
+import React, { useState } from "react";
+import { formatCurreny, getPercentage } from "../utils/functions";
 
-export default function PercentageBar({limit, spending_limit}) {
+export default function PercentageBar({ spent, spending_limit }) {
   return (
     <View style={styles.barContainer}>
       <View style={styles.barHeader}>
         <Text style={styles.barHeading}>Debit card spending limit</Text>
         <Text>
-          <Text style={styles.remaining}>S$ {formatCurreny(limit)}</Text>{' '}
+          <Text style={styles.remaining}>S$ {formatCurreny(spent)}</Text>{" "}
           <Text style={styles.total}>| S$ {formatCurreny(spending_limit)}</Text>
         </Text>
       </View>
@@ -16,8 +16,9 @@ export default function PercentageBar({limit, spending_limit}) {
         <View
           style={{
             ...styles.barInner,
-            width: getPercentage(spending_limit, limit) + '%',
-          }}></View>
+            width: getPercentage(spending_limit, spent) + "%",
+          }}
+        ></View>
       </View>
     </View>
   );
@@ -29,32 +30,32 @@ const styles = StyleSheet.create({
     paddingRight: 24,
   },
   barHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 10,
   },
   barHeading: {
     fontSize: 13,
-    color: '#222222',
-    fontWeight: '500',
+    color: "#222222",
+    fontWeight: "500",
   },
   remaining: {
-    color: '#01D167',
+    color: "#01D167",
     fontSize: 13,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   total: {
-    color: '#22222233',
-    fontWeight: '500',
+    color: "#22222233",
+    fontWeight: "500",
   },
   bar: {
-    backgroundColor: 'rgba(1,209,103,.1)',
+    backgroundColor: "rgba(1,209,103,.1)",
     height: 15,
-    overflow: 'hidden',
+    overflow: "hidden",
     borderRadius: 30,
   },
   barInner: {
     height: 15,
-    backgroundColor: '#01D167',
+    backgroundColor: "#01D167",
   },
 });
