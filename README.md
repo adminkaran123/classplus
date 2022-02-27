@@ -19,7 +19,7 @@ You will find all coded files inside src
 
 ## API
 
-Mock api is user for getting user details which is having some dummy data
+Mock api is using for getting user details which is having some dummy data
 
 ### Sample Response
 
