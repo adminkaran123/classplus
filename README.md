@@ -14,7 +14,7 @@ You will find all coded files inside src
 ## NPM Packges used
 
 1. all required packeges for react-redux and saga
-2. react-native-fast-image for bottom tab images reason I using tintColor for active and deactive color and in react-native normal Image tag it does not work in ios
+2. react-native-fast-image for bottom tab images reason I am using tintColor for active and deactive color and in react-native normal Image tag it does not work in ios
 3. react-native-currency-input for spend limit input area
 
 ## API
