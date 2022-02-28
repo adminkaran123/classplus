@@ -82,6 +82,6 @@ Mock api is using for getting user details which is having some dummy data
 
 ## Note
 
-1. Font was paid so have not use any font is application
+1. Font was paid so have not use any font in application
 2. Using api only for getting user information
 3. api update changes I am only doing on redux state means if api will refresh you will get the same data
