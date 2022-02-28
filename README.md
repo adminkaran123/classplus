@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-You'll need [Node](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/en/) and Watchman installed (`brew install watchman`).
+You'll need [Node](https://nodejs.org/en/) and Watchman installed (`brew install watchman`).
 
 > The Node version should match [the `engine` version here](https://github.com/artsy/eigen/blob/main/package.json).
 
@@ -34,7 +34,7 @@ cd interviewproject
 Start the react-native bundler:
 
 ```sh
-yarn start
+npm start
 ```
 
 ### Run the iOS app
