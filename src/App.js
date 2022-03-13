@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Search from "./components/Search";
+import Modal from "./components/Modal";
 
 const style = {
   height: 30,
@@ -17,6 +18,7 @@ const App = () => {
   const [totalPage, setTotalPage] = useState(100);
   const [search, setSearch] = useState("");
   const [searchedText, setSearchedText] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
 
   const fetchPhotos = (search = "", reset = false) => {
     if (totalPage <= currentPage) {
@@ -100,7 +102,15 @@ const App = () => {
         <div className="gallery">
           {items.map((item) => {
             return (
-              <div className="photo-item" key={item.id}>
+              <div
+                className="photo-item"
+                key={item.id}
+                onClick={() => {
+                  setSelectedImage(
+                    `https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`
+                  );
+                }}
+              >
                 <img
                   src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`}
                 />
@@ -109,6 +119,7 @@ const App = () => {
           })}
         </div>
       </InfiniteScroll>
+      <Modal img={selectedImage} onClose={() => setSelectedImage("")} />
     </div>
   );
 };
