@@ -1,87 +1,70 @@
-# InterviewProject
+# Getting Started with Create React App
 
-# Getting Started
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Prerequisites
+## Available Scripts
 
-You'll need [Node](https://nodejs.org/en/) and Watchman installed (`brew install watchman`).
+In the project directory, you can run:
 
-> The Node version should match [the `engine` version here](https://github.com/artsy/eigen/blob/main/package.json).
+### `npm start`
 
-### Setting up iOS
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Download Xcode version 13. You can find all available versions of Xcode at [Apple's Developer Portal 🔐](http://developer.apple.com/download/more/).
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Setting up Android
+### `npm test`
 
-1. Android development environment:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Follow the official docs [here](https://reactnative.dev/docs/environment-setup). Select "React Native CLI Quickstart" tab
+### `npm run build`
 
-2. Create a virtual device:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-[Create a virtual device](https://developer.android.com/studio/run/managing-avds) on which to run the Android app.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Clone
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```
-git clone https://gitlab.com/karanjalendere/interviewproject
-cd interviewproject
-```
+### `npm run eject`
 
-## Run the app
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Start the react-native bundler:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```sh
-npm start
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### Run the iOS app
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-npx react-native run-ios
+## Learn More
 
-### Run the Android app
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-```sh
-npx react-native run-android
-```
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Folder Structure
+### Code Splitting
 
-You will find all coded files inside src
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-1. assests folder for images
-2. compoents folder for various screen parts
-3. models folder contains all your logic for redux and saga
-4. navigation folder container your bottom navigation and spend limit screen navigation
-5. screen folder contain all screen of your app
-6. utils have file called functions.js which contain some function which are using in various screens
+### Analyzing the Bundle Size
 
-## NPM Packges used
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-1. all required packeges for react-redux and saga
-2. react-native-fast-image for bottom tab images reason I am using tintColor for active and deactive color and in react-native normal Image tag it does not work in ios
-3. react-native-currency-input for spend limit input area
+### Making a Progressive Web App
 
-## API
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Mock api is using for getting user details which is having some dummy data
+### Advanced Configuration
 
-### Sample Response
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-"name": "Mark Henry",
-"card_number": "5647 3411 2413 2020",
-"cvv": "456",
-"expiry_date": "Thru: 12/20",
-"year": "2020",
-"id": "1",
-"limit": 3000,
-"spending_limit": 20000,
-"spent": 400
+### Deployment
 
-## Note
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-1. Font was paid so have not use any font in application
-2. Using api only for getting user information
-3. api update changes I am only doing on redux state means if api will refresh you will get the same data
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
