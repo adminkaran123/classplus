@@ -11,11 +11,8 @@ export default function Search({ setSearch, search, handleSearch }) {
     let getLocalSearch = localStorage.getItem("recent-search")
       ? JSON.parse(localStorage.getItem("recent-search"))
       : [];
-    if (item !== "") {
+    if (item !== "" && getLocalSearch.indexOf(item) == -1) {
       if (getLocalSearch.length < 5) {
-        if (getLocalSearch.indexOf(item) > -1) {
-          getLocalSearch.splice(item, getLocalSearch.indexOf(item));
-        }
         getLocalSearch.unshift(item);
       } else {
         getLocalSearch.unshift(item);
