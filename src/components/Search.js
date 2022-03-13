@@ -2,24 +2,28 @@ import React, { useState } from "react";
 
 export default function Search({ setSearch, search, handleSearch }) {
   const [showSearch, setShowSearch] = useState(false);
-  let getLocalSearch = localStorage.getItem("recent-search")
-    ? JSON.parse(localStorage.getItem("recent-search"))
-    : [];
+  let [getLocalSearch, setLocalSearch] = useState(
+    localStorage.getItem("recent-search")
+      ? JSON.parse(localStorage.getItem("recent-search"))
+      : []
+  );
   const saveToLocal = (item) => {
     let getLocalSearch = localStorage.getItem("recent-search")
       ? JSON.parse(localStorage.getItem("recent-search"))
       : [];
     if (item !== "") {
       if (getLocalSearch.length < 5) {
-        if (getLocalSearch.indexOf(item) == -1) {
+        if (getLocalSearch.indexOf(item) > -1) {
           getLocalSearch.splice(item, getLocalSearch.indexOf(item));
         }
+        getLocalSearch.unshift(item);
+      } else {
         getLocalSearch.unshift(item);
         getLocalSearch.pop();
       }
     }
-
     localStorage.setItem("recent-search", JSON.stringify(getLocalSearch));
+    setLocalSearch(getLocalSearch);
   };
   return (
     <div className="search-wrapper">
@@ -44,7 +48,7 @@ export default function Search({ setSearch, search, handleSearch }) {
           }}
         />
         <button type="submit">Search</button>
-        {showSearch && (
+        {showSearch && getLocalSearch.length > 0 && (
           <ul id="searchSuggestion" class="dropdown-content">
             <li className="search-header">Recent Searches:</li>
             {getLocalSearch.map((item) => {
@@ -66,9 +70,8 @@ export default function Search({ setSearch, search, handleSearch }) {
             <li>
               <button
                 onClick={() => {
-                  setSearch("");
-                  setShowSearch(false);
-                  handleSearch("");
+                  setLocalSearch([]);
+                  localStorage.removeItem("recent-search");
                 }}
               >
                 Clear
